@@ -1,11 +1,42 @@
+/* Graft public site. Colours match the in-app theme (packages/core/src/theme-tokens.ts).
+   Fraunces and Instrument Sans are the app's fonts, under the SIL Open Font License
+   (see assets/fonts/). */
+
+@font-face {
+  font-family: Fraunces;
+  src: url("assets/fonts/Fraunces-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("assets/fonts/InstrumentSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("assets/fonts/InstrumentSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #f4f1ea;
+  --paper2: #ebe6da;
   --card: #fffcf7;
   --ink: #1c1917;
-  --muted: #57534e;
-  --line: #e7e0d6;
+  --muted: #78716c;
+  --line: #e7e2d8;
   --teal: #0f6e6a;
-  --teal-ink: #083f3c;
+  --teal-deep: #0b5552;
+  --teal-soft: #d5ebe9;
+  --shadow: 0 10px 30px rgba(28, 25, 23, 0.08);
 }
 
 * { box-sizing: border-box; }
@@ -16,56 +47,64 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 17px/1.55 Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  font: 400 17px/1.5 "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
 }
+
+img { max-width: 100%; height: auto; }
 
 a { color: var(--teal); }
 
-a:hover { color: var(--teal-ink); }
+a:hover { color: var(--teal-deep); }
 
-header, main, footer {
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, .brand span, .mark {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/* —— Legal pages (privacy, terms) —— */
+
+body:not(.home) header,
+body:not(.home) main,
+body:not(.home) footer {
   width: min(42rem, calc(100% - 2rem));
   margin-inline: auto;
 }
 
-header {
-  padding: 1.75rem 0 0.5rem;
-}
+body:not(.home) header { padding: 1.75rem 0 0.5rem; }
 
 .mark {
   display: inline-block;
   margin: 0 0 0.75rem;
   color: var(--teal);
-  font: 600 0.8rem/1 ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
 }
 
-h1 {
+body:not(.home) h1 {
   margin: 0 0 0.4rem;
   font-size: clamp(2rem, 6vw, 2.75rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
   line-height: 1.1;
 }
 
-.lede {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-}
+.lede { margin: 0; color: var(--muted); }
 
-nav {
+body:not(.home) nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.25rem;
   margin: 1.25rem 0 0;
-  font: 600 0.95rem/1.2 ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
 }
 
-main { padding-bottom: 2.5rem; }
+body:not(.home) main { padding-bottom: 2.5rem; }
 
-section, .card {
+body:not(.home) section {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -73,29 +112,344 @@ section, .card {
   margin: 1rem 0;
 }
 
-h2 {
+body:not(.home) h2 {
   margin: 0 0 0.6rem;
-  font-size: 1.25rem;
-  letter-spacing: -0.02em;
+  font-size: 1.35rem;
 }
 
-h3 {
+body:not(.home) h3 {
   margin: 1.1rem 0 0.35rem;
   font-size: 1.05rem;
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
 }
 
-p, li { color: var(--ink); }
+body:not(.home) ul,
+body:not(.home) ol { padding-left: 1.2rem; }
 
-ul, ol { padding-left: 1.2rem; }
+body:not(.home) li { margin: 0.35rem 0; }
 
-li { margin: 0.35rem 0; }
-
-footer {
+body:not(.home) footer {
   padding: 0 0 2.5rem;
   color: var(--muted);
-  font: 0.9rem/1.45 ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
 }
 
-.contact {
-  font: 600 1rem/1.4 ui-sans-serif, system-ui, sans-serif;
+.contact { font-weight: 600; }
+
+/* —— Landing page —— */
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--card);
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+}
+
+.skip:focus { top: 0.5rem; }
+
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding: 0.85rem 1.25rem;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.35rem;
+}
+
+.brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.bar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.bar nav a { text-decoration: none; }
+
+.bar nav a:hover { text-decoration: underline; }
+
+.home main {
+  width: min(72rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.hero {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  color: var(--teal);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 4.25rem);
+  line-height: 1.02;
+}
+
+.hero .lede {
+  margin-top: 0.9rem;
+  max-width: 34rem;
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 1.35rem;
+  line-height: 0;
+}
+
+.badge img { width: 162px; height: 54px; }
+
+.hero-phone {
+  width: min(100%, 17.5rem);
+  justify-self: center;
+  filter: drop-shadow(var(--shadow));
+}
+
+.band { padding: 1rem 0 2rem; }
+
+.home h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+}
+
+.features {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.features li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.05rem 0.95rem;
+}
+
+.features h3 {
+  margin: 0 0 0.3rem;
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.features p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.shots {
+  display: flex;
+  gap: 1rem;
+  margin: 1.25rem -1rem 0;
+  padding: 0 1rem 0.4rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.shots figure {
+  flex: 0 0 72%;
+  margin: 0;
+  scroll-snap-align: center;
+}
+
+.shots img {
+  width: 100%;
+  filter: drop-shadow(var(--shadow));
+}
+
+.shots figcaption {
+  margin-top: 0.55rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.plans {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.plan {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.2rem 1.15rem 1.1rem;
+}
+
+.plan h3 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.price {
+  margin: 0.35rem 0 0;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 2.4rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.price span {
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.year, .fine { color: var(--muted); font-size: 0.95rem; }
+
+.year { margin: 0.35rem 0 0; }
+
+.plan ul {
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan li {
+  position: relative;
+  margin: 0.4rem 0;
+  padding-left: 1.35rem;
+}
+
+.plan li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 0.55rem;
+  height: 0.3rem;
+  border-left: 2px solid var(--teal);
+  border-bottom: 2px solid var(--teal);
+  transform: rotate(-45deg);
+}
+
+.plan-premium {
+  background: var(--teal-soft);
+  border-color: transparent;
+}
+
+.save {
+  display: inline-block;
+  margin: 0 0 0.55rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--teal-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.fine { margin: 0.9rem 0 0; line-height: 1.45; }
+
+.panel {
+  margin-top: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.15rem 1.15rem 0.3rem;
+}
+
+.panel h2 { font-size: 1.45rem; }
+
+.panel h3 {
+  margin: 1rem 0 0.3rem;
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.panel p, .panel li { font-size: 0.98rem; }
+
+.faq { display: grid; gap: 0.75rem; }
+
+.faq article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.05rem;
+}
+
+.faq h3 {
+  margin: 0 0 0.35rem;
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.02rem;
+  letter-spacing: 0;
+}
+
+.faq p { margin: 0; color: var(--muted); }
+
+.home footer {
+  width: min(72rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.home section { scroll-margin-top: 4.5rem; }
+
+@media (min-width: 720px) {
+  .features { grid-template-columns: 1fr 1fr; }
+  .plans { grid-template-columns: 1fr 1fr; align-items: start; }
+  .shots { margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
+  .shots figure { flex-basis: 32%; }
+}
+
+@media (min-width: 960px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    padding-top: 2.5rem;
+    min-height: 36rem;
+  }
+
+  .hero-phone {
+    width: auto;
+    max-height: 36rem;
+    justify-self: end;
+  }
+
+  .shots {
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .features { grid-template-columns: 1fr 1fr 1fr; }
 }
