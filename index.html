@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,6 @@
   <meta name="description" content="Graft is an iPhone app for hourly shift work. Clock in, log your shifts and see an estimate of what you’ll take home.">
   <meta name="theme-color" content="#F4F1EA">
   <meta name="apple-itunes-app" content="app-id=6815056075">
-  <link rel="canonical" href="https://nsk5713.github.io/graft-site/">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:type" content="website">
@@ -23,6 +22,20 @@
   <meta name="twitter:description" content="Clock in, log your shifts and see an estimate of what you’ll take home. For hourly work on iPhone.">
   <meta name="twitter:image" content="https://nsk5713.github.io/graft-site/assets/og.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://nsk5713.github.io/graft-site/">
+  <link rel="alternate" hreflang="en" href="https://nsk5713.github.io/graft-site/">
+  <link rel="alternate" hreflang="th" href="https://nsk5713.github.io/graft-site/th/">
+  <link rel="alternate" hreflang="es" href="https://nsk5713.github.io/graft-site/es/">
+  <link rel="alternate" hreflang="fr" href="https://nsk5713.github.io/graft-site/fr/">
+  <link rel="alternate" hreflang="de" href="https://nsk5713.github.io/graft-site/de/">
+  <link rel="alternate" hreflang="pt-BR" href="https://nsk5713.github.io/graft-site/pt-BR/">
+  <link rel="alternate" hreflang="it" href="https://nsk5713.github.io/graft-site/it/">
+  <link rel="alternate" hreflang="ja" href="https://nsk5713.github.io/graft-site/ja/">
+  <link rel="alternate" hreflang="ko" href="https://nsk5713.github.io/graft-site/ko/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://nsk5713.github.io/graft-site/zh-Hans/">
+  <link rel="alternate" hreflang="vi" href="https://nsk5713.github.io/graft-site/vi/">
+  <link rel="alternate" hreflang="id" href="https://nsk5713.github.io/graft-site/id/">
+  <link rel="alternate" hreflang="x-default" href="https://nsk5713.github.io/graft-site/">
 </head>
 <body class="home">
   <a class="skip" href="#main">Skip to content</a>
@@ -32,6 +45,7 @@
       <span>Graft</span>
     </a>
     <nav>
+      <label class="lang-label"><span class="visually-hidden">Language</span><select class="lang" id="lang"><option value="en" data-href="./" selected>English</option><option value="th" data-href="th/">ไทย</option><option value="es" data-href="es/">Español</option><option value="fr" data-href="fr/">Français</option><option value="de" data-href="de/">Deutsch</option><option value="pt-BR" data-href="pt-BR/">Português</option><option value="it" data-href="it/">Italiano</option><option value="ja" data-href="ja/">日本語</option><option value="ko" data-href="ko/">한국어</option><option value="zh-Hans" data-href="zh-Hans/">中文</option><option value="vi" data-href="vi/">Tiếng Việt</option><option value="id" data-href="id/">Bahasa Indonesia</option></select></label>
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -44,7 +58,7 @@
         <p class="eyebrow">For hourly work</p>
         <h1>Track your shifts, hours and pay.</h1>
         <p class="lede">Clock in, log every job, and see an estimate of what you’ll take home.</p>
-        <a class="badge" href="https://apps.apple.com/gb/app/graft-shift-pay/id6815056075">
+        <a class="badge" href="https://apps.apple.com/app/id6815056075">
           <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="162" height="54">
         </a>
       </div>
@@ -64,7 +78,7 @@
         </li>
         <li>
           <h3>Take-home estimate</h3>
-          <p>Gross, tax, National Insurance and pension, from the settings on each job. The figures are estimates, not a payslip.</p>
+          <p>Gross, then the tax and other deductions you set on each job. In the UK and the Isle of Man that can be an illustrative PAYE or ITIP figure. Anywhere else you type your own percentages. These are estimates, not a payslip.</p>
         </li>
         <li>
           <h3>Jobs and templates</h3>
@@ -100,7 +114,7 @@
       <div class="plans">
         <article class="plan">
           <h3>Free</h3>
-          <p class="price">£0</p>
+          <p class="price">Free</p>
           <ul>
             <li>2 active jobs</li>
             <li>1 shift template</li>
@@ -111,10 +125,9 @@
           </ul>
         </article>
         <article class="plan plan-premium">
-          <p class="save">Best value · Save 44%</p>
           <h3>Premium</h3>
-          <p class="price">£2.99<span>/month</span></p>
-          <p class="year">or £19.99/year, with 1 month free for a new subscriber. That is 44% less than twelve months at £2.99 (£35.88).</p>
+          <p class="price">Monthly</p>
+          <p class="year">or yearly, with 1 month free for a new subscriber. The App Store shows the price in your country. When yearly costs less than twelve months, the subscribe screen shows how much you save.</p>
           <ul>
             <li>Unlimited jobs and templates</li>
             <li>Repeating shifts</li>
@@ -123,14 +136,14 @@
             <li>Share your schedule</li>
             <li>Custom colours</li>
           </ul>
-          <p class="fine">Monthly has no free trial. The yearly free month converts to £19.99 a year unless you cancel at least 24 hours before it ends. Apple bills the subscription. Prices on the subscribe button come from the App Store.</p>
+          <p class="fine">Monthly has no free trial. The yearly free month converts to the yearly price unless you cancel at least 24 hours before it ends. Apple bills the subscription. Prices on the subscribe button come from the App Store. Pay figures in the app are estimates, not a payslip.</p>
         </article>
       </div>
 
       <div id="subscriptions" class="panel">
         <h2>Subscriptions</h2>
         <h3>Where to subscribe</h3>
-        <p>Open Graft, sign in, then go to <strong>Settings → Account</strong>. Monthly is £2.99 with no free trial. Yearly is one month free for a new subscriber, then £19.99 a year. The plan you pick shows the price from the App Store, with Subscribe and Restore purchases.</p>
+        <p>Open Graft, sign in, then go to <strong>Settings → Account</strong>. Monthly has no free trial. Yearly is one month free for a new subscriber, then the yearly price. The plan you pick shows the price from the App Store, with Subscribe and Restore purchases.</p>
         <h3>How to restore</h3>
         <p>On the same iPhone Apple ID that bought Premium, open <strong>Settings → Account → Restore purchases</strong>. Restoring puts Premium on the Graft account you are signed in to.</p>
         <h3>How to cancel</h3>
@@ -139,7 +152,7 @@
           <li>Open the Settings app → your name → Subscriptions, or visit <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>.</li>
           <li>Choose Graft Premium and cancel. You can also open <strong>Settings → Account → Manage subscription</strong> in Graft while Premium is active.</li>
         </ol>
-        <p>The yearly free month converts to £19.99 a year unless you cancel at least 24 hours before the trial ends. After that, and for monthly, cancel at least 24 hours before the period ends to stop the next renewal. Premium stays available until the time you already have ends. Deleting the app, or deleting your Graft account, does not cancel the subscription.</p>
+        <p>The yearly free month converts to the yearly price unless you cancel at least 24 hours before the trial ends. After that, and for monthly, cancel at least 24 hours before the period ends to stop the next renewal. Premium stays available until the time you already have ends. Deleting the app, or deleting your Graft account, does not cancel the subscription.</p>
         <p>Payment, renewals and refunds are handled by Apple under the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Licensed Application End User License Agreement</a>.</p>
       </div>
     </section>
@@ -149,7 +162,7 @@
       <div class="faq">
         <article>
           <h3>Why might the pay estimate differ from my payslip?</h3>
-          <p>Graft does not know your tax code, student loan, or every deduction your employer applies. Compare the estimate with your payslip.</p>
+          <p>Graft's figures are estimates, not a payslip. It does not know your tax code, student loan, or every deduction your employer applies. Compare the estimate with your payslip. The payslip is the source of truth.</p>
         </article>
         <article>
           <h3>Where does my data live?</h3>
@@ -173,5 +186,34 @@
   <footer>
     <p>Graft · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · <a href="mailto:GraftSupport@proton.me">GraftSupport@proton.me</a></p>
   </footer>
+<script>
+(function () {
+  var map = {"en":"./","th":"th/","es":"es/","fr":"fr/","de":"de/","pt-BR":"pt-BR/","it":"it/","ja":"ja/","ko":"ko/","zh-Hans":"zh-Hans/","vi":"vi/","id":"id/"};
+  var supported = ["en","th","es","fr","de","pt-BR","it","ja","ko","zh-Hans","vi","id"];
+  function resolve(tag) {
+    var t = String(tag || "").toLowerCase().replace(/_/g, "-");
+    if (t.indexOf("pt") === 0) return "pt-BR";
+    if (t.indexOf("zh") === 0) return "zh-Hans";
+    var primary = t.split("-")[0];
+    if (supported.indexOf(t) >= 0) return t;
+    if (supported.indexOf(primary) >= 0) return primary;
+    return "en";
+  }
+  var stored = "";
+  try { stored = localStorage.getItem("graft-site-lang") || ""; } catch (e) {}
+  var here = document.documentElement.lang;
+  if (!stored && here === "en") {
+    var want = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+    if (want !== "en" && map[want]) location.replace(map[want]);
+  }
+  var sel = document.getElementById("lang");
+  if (!sel) return;
+  sel.addEventListener("change", function () {
+    var next = sel.options[sel.selectedIndex];
+    try { localStorage.setItem("graft-site-lang", sel.value); } catch (e) {}
+    if (next && next.getAttribute("data-href")) location.href = next.getAttribute("data-href");
+  });
+})();
+</script>
 </body>
 </html>

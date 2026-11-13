@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,29 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://nsk5713.github.io/graft-site/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://nsk5713.github.io/graft-site/privacy.html">
+  <link rel="alternate" hreflang="th" href="https://nsk5713.github.io/graft-site/th/privacy.html">
+  <link rel="alternate" hreflang="es" href="https://nsk5713.github.io/graft-site/es/privacy.html">
+  <link rel="alternate" hreflang="fr" href="https://nsk5713.github.io/graft-site/fr/privacy.html">
+  <link rel="alternate" hreflang="de" href="https://nsk5713.github.io/graft-site/de/privacy.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://nsk5713.github.io/graft-site/pt-BR/privacy.html">
+  <link rel="alternate" hreflang="it" href="https://nsk5713.github.io/graft-site/it/privacy.html">
+  <link rel="alternate" hreflang="ja" href="https://nsk5713.github.io/graft-site/ja/privacy.html">
+  <link rel="alternate" hreflang="ko" href="https://nsk5713.github.io/graft-site/ko/privacy.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://nsk5713.github.io/graft-site/zh-Hans/privacy.html">
+  <link rel="alternate" hreflang="vi" href="https://nsk5713.github.io/graft-site/vi/privacy.html">
+  <link rel="alternate" hreflang="id" href="https://nsk5713.github.io/graft-site/id/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://nsk5713.github.io/graft-site/privacy.html">
 </head>
 <body>
   <header>
     <p class="mark">Graft</p>
     <h1>Privacy Policy</h1>
     <p class="lede">Effective 8 October 2026. This page describes what the iOS app does with data today.</p>
+    <p>If a translation of this page conflicts with the English version, the English version prevails.</p>
     <nav>
+      <label class="lang-label"><span class="visually-hidden">Language</span><select class="lang" id="lang"><option value="en" data-href="privacy.html" selected>English</option><option value="th" data-href="th/privacy.html">ไทย</option><option value="es" data-href="es/privacy.html">Español</option><option value="fr" data-href="fr/privacy.html">Français</option><option value="de" data-href="de/privacy.html">Deutsch</option><option value="pt-BR" data-href="pt-BR/privacy.html">Português</option><option value="it" data-href="it/privacy.html">Italiano</option><option value="ja" data-href="ja/privacy.html">日本語</option><option value="ko" data-href="ko/privacy.html">한국어</option><option value="zh-Hans" data-href="zh-Hans/privacy.html">中文</option><option value="vi" data-href="vi/privacy.html">Tiếng Việt</option><option value="id" data-href="id/privacy.html">Bahasa Indonesia</option></select></label>
       <a href="./">Home</a>
       <a href="terms.html">Terms of Use</a>
       <a href="mailto:GraftSupport@proton.me">Contact</a>
@@ -37,7 +53,7 @@
         <li>Jobs: workplace, role, colour, hourly rate, overtime, holiday pay, pay cycle, pension and the tax settings you enter.</li>
         <li>Shifts: dates, times, breaks and whether a shift is worked or scheduled.</li>
         <li>A workplace pin, if you set one. Graft keeps no location history.</li>
-        <li>Preferences, including reminders and whether Premium is active on this account.</li>
+        <li>Preferences, including reminders, the currency used to show pay, and whether Premium is active on this account.</li>
       </ul>
     </section>
     <section>
@@ -64,6 +80,11 @@
       <p>There is no advertising and no analytics SDK. The Analytics screen calculates figures on the phone from your shifts.</p>
     </section>
     <section>
+      <h2>Your rights</h2>
+      <p>Which privacy law applies depends on where you live. This is not a UK-only policy. If the UK GDPR applies to you, it applies. If another law applies — for example Thailand’s Personal Data Protection Act (PDPA) — that law applies to the name and email used to sign in. Graft does not publish a postal address on this page.</p>
+      <p>Shifts and pay stay on the iPhone (and in your own iCloud only if you turn backup on). To ask about the name and email, email <a href="mailto:GraftSupport@proton.me">GraftSupport@proton.me</a> or delete the account in the app.</p>
+    </section>
+    <section>
       <h2>Children</h2>
       <p>Graft is not directed at children. It is a tool for people tracking paid work.</p>
     </section>
@@ -76,5 +97,34 @@
   <footer>
     <p>Graft · <a href="./">Home</a> · <a href="terms.html">Terms of Use</a></p>
   </footer>
+<script>
+(function () {
+  var map = {"en":"privacy.html","th":"th/privacy.html","es":"es/privacy.html","fr":"fr/privacy.html","de":"de/privacy.html","pt-BR":"pt-BR/privacy.html","it":"it/privacy.html","ja":"ja/privacy.html","ko":"ko/privacy.html","zh-Hans":"zh-Hans/privacy.html","vi":"vi/privacy.html","id":"id/privacy.html"};
+  var supported = ["en","th","es","fr","de","pt-BR","it","ja","ko","zh-Hans","vi","id"];
+  function resolve(tag) {
+    var t = String(tag || "").toLowerCase().replace(/_/g, "-");
+    if (t.indexOf("pt") === 0) return "pt-BR";
+    if (t.indexOf("zh") === 0) return "zh-Hans";
+    var primary = t.split("-")[0];
+    if (supported.indexOf(t) >= 0) return t;
+    if (supported.indexOf(primary) >= 0) return primary;
+    return "en";
+  }
+  var stored = "";
+  try { stored = localStorage.getItem("graft-site-lang") || ""; } catch (e) {}
+  var here = document.documentElement.lang;
+  if (!stored && here === "en") {
+    var want = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+    if (want !== "en" && map[want]) location.replace(map[want]);
+  }
+  var sel = document.getElementById("lang");
+  if (!sel) return;
+  sel.addEventListener("change", function () {
+    var next = sel.options[sel.selectedIndex];
+    try { localStorage.setItem("graft-site-lang", sel.value); } catch (e) {}
+    if (next && next.getAttribute("data-href")) location.href = next.getAttribute("data-href");
+  });
+})();
+</script>
 </body>
 </html>
